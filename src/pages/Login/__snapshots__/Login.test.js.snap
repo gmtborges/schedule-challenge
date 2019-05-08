@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Login page 1`] = `
+<DocumentFragment>
+  <div
+    class="StyledBox-sc-13pk1d4-0 bygWGk"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 brnKMM"
+    >
+      <h1
+        class="StyledHeading-sc-1rdh4aw-0 fNirbH"
+      >
+        Agendamento
+      </h1>
+    </div>
+    <div
+      class="StyledBox-sc-13pk1d4-0 fSQLwI"
+    >
+      <div
+        class="StyledBox-sc-13pk1d4-0 gZuWwm"
+      >
+        <form>
+          <div
+            class="FormField__FormFieldBox-m9hood-0 eshLKp StyledBox-sc-13pk1d4-0 CAsMy"
+          >
+            <label
+              class="StyledText-sc-1sadyjn-0 bKLvLm"
+              for="email"
+            >
+              E-mail
+            </label>
+            <div
+              class="StyledBox-sc-13pk1d4-0 gZSidW"
+            >
+              <div
+                class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 yIdXy"
+              >
+                <input
+                  autocomplete="off"
+                  class="StyledTextInput-sc-1x30a0s-0 duvNfq"
+                  for="email"
+                  id="email"
+                  label="E-mail"
+                  name="email"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="FormField__FormFieldBox-m9hood-0 eshLKp StyledBox-sc-13pk1d4-0 CAsMy"
+          >
+            <label
+              class="StyledText-sc-1sadyjn-0 bKLvLm"
+              for="password"
+            >
+              Senha
+            </label>
+            <div
+              class="StyledBox-sc-13pk1d4-0 gZSidW"
+            >
+              <div
+                class="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 yIdXy"
+              >
+                <input
+                  autocomplete="off"
+                  class="StyledTextInput-sc-1x30a0s-0 duvNfq"
+                  for="password"
+                  id="password"
+                  label="Senha"
+                  name="password"
+                  type="password"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="StyledBox-sc-13pk1d4-0 gLuuwC"
+          >
+            <div
+              class="StyledBox-sc-13pk1d4-0 bwhsOh"
+            >
+              <button
+                class="StyledButton-sc-323bzc-0 kHrfdt"
+                type="submit"
+              >
+                Criar conta
+              </button>
+            </div>
+            <div
+              class="StyledBox-sc-13pk1d4-0 hXvJrg"
+            >
+              <button
+                class="StyledButton-sc-323bzc-0 aNlbA"
+                type="submit"
+              >
+                Entrar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
