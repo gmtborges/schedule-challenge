@@ -8,11 +8,23 @@ const FormSignupDoctor = props => (
 		messages={{ required: 'Campo obrigatório.' }}
 	>
 		<FormField name="name" label="Nome" id="nome" htmlFor="nome" required />
-		<FormField name="crm" label="CRM" id="crm" htmlFor="crm" required />
+		<FormField
+			name="crm"
+			label="CRM"
+			placeholder="1234/SP"
+			id="crm"
+			htmlFor="crm"
+			required
+			validate={{
+				regexp: /[0-9]{4,10}\/AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO{2}/,
+				message: 'CRM Inválido'
+			}}
+		/>
 
 		<FormField
 			name="email"
 			label="E-mail"
+			placeholder="seu@email.com"
 			id="email"
 			htmlFor="email"
 			required

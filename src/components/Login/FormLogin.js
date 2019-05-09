@@ -11,6 +11,7 @@ const FormLogin = props => {
 			<FormField
 				name="email"
 				label="E-mail"
+				placeholder="seu@email.com"
 				id="email"
 				htmlFor="email"
 				required

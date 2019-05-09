@@ -12,6 +12,7 @@ const FormSignupUser = props => (
 			name="email"
 			label="E-mail"
 			id="email"
+			placeholder="seu@email.com"
 			htmlFor="email"
 			required
 			validate={{
