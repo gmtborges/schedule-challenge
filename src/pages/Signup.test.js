@@ -30,18 +30,20 @@ test('should render Signup page', () => {
 	expect(asFragment()).toMatchSnapshot();
 });
 
-test('signup user form must contain name, email and password fields', () => {
+test('signup user form must contain name, email, password and passwordConfirm fields', () => {
 	const { getByLabelText } = renderWithRouter(<Signup />);
 	const name = getByLabelText('Nome');
 	const email = getByLabelText('E-mail');
 	const password = getByLabelText('Senha');
+	const passwordConfirm = getByLabelText('Confirmar senha');
 
 	expect(name).toBeDefined();
 	expect(email).toBeDefined();
 	expect(password).toBeDefined();
+	expect(passwordConfirm).toBeDefined();
 });
 
-test('onSubmit must be called with name, email and password filled', () => {
+test('user form onSubmit must be called with name, email, password and passwordConfirm filled', () => {
 	const handleSubmit = jest.fn();
 	const { getByLabelText, getByText } = renderWithRouter(
 		<FormSignupUser handleSubmit={handleSubmit} />
@@ -49,9 +51,31 @@ test('onSubmit must be called with name, email and password filled', () => {
 	const nameInput = getByLabelText('Nome');
 	const emailInput = getByLabelText('E-mail');
 	const passwordInput = getByLabelText('Senha');
+	const passwordConfirmInput = getByLabelText('Confirmar senha');
 	fireEvent.change(nameInput, { target: { value: 'John Doe' } });
 	fireEvent.change(emailInput, { target: { value: 'john@doe.com' } });
 	fireEvent.change(passwordInput, { target: { value: '123' } });
+	fireEvent.change(passwordConfirmInput, { target: { value: '123' } });
+	getByText(/salvar/i).click();
+
+	expect(handleSubmit).toHaveBeenCalledTimes(1);
+});
+
+test('doctor form onSubmit must be called with name, crm, email, password and passwordConfirm filled', () => {
+	const handleSubmit = jest.fn();
+	const { getByLabelText, getByText } = renderWithRouter(
+		<FormSignupDoctor handleSubmit={handleSubmit} />
+	);
+	const nameInput = getByLabelText('Nome');
+	const crmInput = getByLabelText('CRM');
+	const emailInput = getByLabelText('E-mail');
+	const passwordInput = getByLabelText('Senha');
+	const passwordConfirmInput = getByLabelText('Confirmar senha');
+	fireEvent.change(nameInput, { target: { value: 'John Doe' } });
+	fireEvent.change(crmInput, { target: { value: '1234/SP' } });
+	fireEvent.change(emailInput, { target: { value: 'john@doe.com' } });
+	fireEvent.change(passwordInput, { target: { value: '123' } });
+	fireEvent.change(passwordConfirmInput, { target: { value: '123' } });
 	getByText(/salvar/i).click();
 
 	expect(handleSubmit).toHaveBeenCalledTimes(1);

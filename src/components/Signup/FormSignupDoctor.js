@@ -41,6 +41,15 @@ const FormSignupDoctor = props => (
 			label="Senha"
 			required
 		/>
+		<FormField
+			type="password"
+			name="passwordConfirm"
+			id="passwordConfirm"
+			htmlFor="passwordConfirm"
+			label="Confirmar senha"
+			required
+			validate={(value, form) => value !== form.password && 'Senha diferente'}
+		/>
 		<Box direction="row" margin={{ top: '48px' }}>
 			<Box width="180px">
 				<Link to="/">

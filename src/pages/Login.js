@@ -6,9 +6,24 @@ import FormLogin from '../components/Login/FormLogin';
 
 export default class Login extends Component {
 	handleSubmit = event => {
-		console.log(event.value);
-		event.value = {};
+		if (!localStorage.getItem('users')) return;
+
+		const users = JSON.parse(localStorage.getItem('users'));
+		const user = users.filter(
+			it =>
+				it.email === event.value.email && it.password === event.value.password
+		)[0];
+		if (user) {
+			localStorage.setItem('loggedIn', 'true');
+			this.props.history.push(
+				this.isDoctor(user) ? '/home/doctor' : '/home/user'
+			);
+		}
 	};
+
+	isDoctor(user) {
+		return user.hasOwnProperty('crm');
+	}
 
 	render() {
 		return (
