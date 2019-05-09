@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 const Routes = () => (
-	<BrowserRouter>
+	<HashRouter>
 		<Route path="/" exact component={Login} />
 		<Route path="/signup" component={Signup} />
-	</BrowserRouter>
+	</HashRouter>
 );
 
 export default Routes;
