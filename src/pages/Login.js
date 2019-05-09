@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import { Box } from 'grommet';
-import LeftSide from '../../components/LeftSide';
-import RightSide from '../../components/RightSide';
-import FormLogin from './components/FormLogin';
+import LeftSide from '../components/LeftSide';
+import RightSide from '../components/RightSide';
+import FormLogin from '../components/Login/FormLogin';
 
 export default class Login extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			password: ''
-		};
-	}
-
 	handleSubmit = event => {
 		console.log(event.value);
 		event.value = {};
