@@ -1,12 +1,12 @@
 import React from 'react';
-import Login from './pages/Login/Login';
+import Routes from './Routes';
 import { Grommet } from 'grommet';
 import theme from './styles/theme';
 
 function App() {
 	return (
 		<Grommet theme={theme}>
-			<Login />
+			<Routes />
 		</Grommet>
 	);
 }
