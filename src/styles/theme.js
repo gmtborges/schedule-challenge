@@ -1,7 +1,7 @@
 const theme = {
 	global: {
 		colors: {
-			brand: '#183661'
+			brand: '#494ca2'
 		},
 		font: {
 			family: 'Helvetica, sans-serif',
