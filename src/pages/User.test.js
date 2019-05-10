@@ -39,7 +39,7 @@ test('should logout on "sair" button clicked', () => {
 	expect(history.location.pathname).toEqual('/');
 });
 
-test('should render a empty list if has not schedules', () => {
+test('should render a empty list if has no schedules', () => {
 	const { queryAllByTestId } = render(
 		<Table>
 			<UserTableBody data={[]} />
@@ -70,4 +70,11 @@ test('should render a list with 2 schedules', () => {
 	);
 	const rows = getAllByTestId('user-schedule');
 	expect(rows.length).toBe(2);
+});
+
+test('should go to schedule page on "agendar" button clicked', () => {
+	const { getByText, history } = renderWithRouter(<User />);
+	getByText(/agendar/i).click();
+
+	expect(history.location.pathname).toEqual('/user/schedule');
 });
