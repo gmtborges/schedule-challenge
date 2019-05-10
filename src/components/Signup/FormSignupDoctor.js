@@ -7,7 +7,7 @@ const FormSignupDoctor = props => (
 		onSubmit={props.handleSubmit}
 		messages={{ required: 'Campo obrigatório.' }}
 	>
-		<FormField name="name" label="Nome" id="nome" htmlFor="nome" required />
+		<FormField name="name" label="Nome" id="name" htmlFor="name" required />
 		<FormField
 			name="crm"
 			label="CRM"
@@ -19,6 +19,13 @@ const FormSignupDoctor = props => (
 				regexp: /[0-9]{4,10}\/AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO{2}/,
 				message: 'CRM Inválido'
 			}}
+		/>
+		<FormField
+			name="skill"
+			label="Especialidade"
+			id="skill"
+			htmlFor="skill"
+			required
 		/>
 
 		<FormField

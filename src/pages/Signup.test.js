@@ -61,18 +61,20 @@ test('user form onSubmit must be called with name, email, password and passwordC
 	expect(handleSubmit).toHaveBeenCalledTimes(1);
 });
 
-test('doctor form onSubmit must be called with name, crm, email, password and passwordConfirm filled', () => {
+test('doctor form onSubmit must be called with name, crm, skill, email, password and passwordConfirm filled', () => {
 	const handleSubmit = jest.fn();
 	const { getByLabelText, getByText } = renderWithRouter(
 		<FormSignupDoctor handleSubmit={handleSubmit} />
 	);
 	const nameInput = getByLabelText('Nome');
 	const crmInput = getByLabelText('CRM');
+	const skillInput = getByLabelText('Especialidade');
 	const emailInput = getByLabelText('E-mail');
 	const passwordInput = getByLabelText('Senha');
 	const passwordConfirmInput = getByLabelText('Confirmar senha');
 	fireEvent.change(nameInput, { target: { value: 'John Doe' } });
 	fireEvent.change(crmInput, { target: { value: '1234/SP' } });
+	fireEvent.change(skillInput, { target: { value: 'Heart' } });
 	fireEvent.change(emailInput, { target: { value: 'john@doe.com' } });
 	fireEvent.change(passwordInput, { target: { value: '123' } });
 	fireEvent.change(passwordConfirmInput, { target: { value: '123' } });
