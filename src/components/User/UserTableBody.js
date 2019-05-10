@@ -4,8 +4,8 @@ import { TableBody, TableRow, TableCell, Text } from 'grommet';
 const UserTableBody = props => {
 	const columns = [
 		{ label: 'id', weight: 'normal', align: 'start' },
-		{ label: 'doctor', weight: 'normal', align: 'center' },
-		{ label: 'time', weight: 'bold', align: 'end' }
+		{ label: 'doctorLabel', weight: 'normal', align: 'center' },
+		{ label: 'date', weight: 'bold', align: 'end' }
 	];
 	return (
 		<TableBody>

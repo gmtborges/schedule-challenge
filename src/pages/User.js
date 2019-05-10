@@ -24,18 +24,7 @@ export default class User extends Component {
 	componentDidMount() {
 		let schedules = localStorage.getItem('schedules')
 			? JSON.parse(localStorage.getItem('schedules'))
-			: [
-					// {
-					// 	id: 1,
-					// 	doctor: 'Mayara Moreira de Deus / Otorrino',
-					// 	time: '10/05/19 - 07:00h'
-					// },
-					// {
-					// 	id: 2,
-					// 	doctor: 'Mayara Moreira de Deus / Otorrino',
-					// 	time: '10/05/19 - 07:00h'
-					// }
-			  ];
+			: [];
 		this.setState({ data: schedules });
 	}
 	render() {
