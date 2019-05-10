@@ -2,9 +2,10 @@ import React from 'react';
 import { HashRouter, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import HomeDoctor from './pages/HomeDoctor';
-import HomeUser from './pages/HomeUser';
-import loggedIn from './utils/auth';
+import Doctor from './pages/Doctor';
+import User from './pages/User';
+import UserSchedule from './pages/UserSchedule';
+import { loggedIn } from './utils/auth';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route
@@ -28,8 +29,9 @@ const Routes = () => (
 	<HashRouter>
 		<Route path="/" exact component={Login} />
 		<Route path="/signup" component={Signup} />
-		<PrivateRoute path="/home/doctor" component={HomeDoctor} />
-		<PrivateRoute path="/home/user" component={HomeUser} />
+		<PrivateRoute path="/doctor" component={Doctor} />
+		<PrivateRoute path="/user" exact component={User} />
+		<PrivateRoute path="/user/schedule" component={UserSchedule} />
 	</HashRouter>
 );
 

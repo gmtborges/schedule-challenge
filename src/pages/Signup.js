@@ -4,15 +4,13 @@ import LeftSide from '../components/LeftSide';
 import RightSide from '../components/RightSide';
 import FormSignupUser from '../components/Signup/FormSignupUser';
 import FormSignupDoctor from '../components/Signup/FormSignupDoctor';
+import { getUsers } from '../utils/auth';
 
 export default class Signup extends Component {
 	handleSubmit = event => {
-		let users = localStorage.getItem('users')
-			? JSON.parse(localStorage.getItem('users'))
-			: [];
+		let users = getUsers();
 		users.push(event.value);
 		localStorage.setItem('users', JSON.stringify(users));
-		event.value = {};
 		this.props.history.push('/');
 	};
 
