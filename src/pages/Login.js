@@ -15,6 +15,7 @@ export default class Login extends Component {
 		)[0];
 		if (user) {
 			localStorage.setItem('loggedIn', 'true');
+			localStorage.setItem('loggedUser', JSON.stringify(user));
 			this.props.history.push(this.isDoctor(user) ? '/doctor' : '/user');
 		}
 	};

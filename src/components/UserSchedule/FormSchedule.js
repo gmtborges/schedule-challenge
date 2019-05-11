@@ -24,13 +24,15 @@ export default class FormSchedule extends Component {
 		const { doctor, date, hour } = this.state;
 		if (!doctor.id || !hour) return;
 
-		let schedules = localStorage.getItem('schedules')
+		const user = JSON.parse(localStorage.getItem('loggedUser'));
+		const schedules = localStorage.getItem('schedules')
 			? JSON.parse(localStorage.getItem('schedules'))
 			: [];
 
 		let dateFormat = new Date(date).toLocaleDateString('pt-BR');
 		schedules.push({
 			id: schedules.length + 1,
+			user: user.name,
 			doctorId: doctor.id,
 			doctorLabel: doctor.label,
 			date: `${dateFormat} - ${hour}`

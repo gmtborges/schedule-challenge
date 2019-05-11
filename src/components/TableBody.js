@@ -1,18 +1,13 @@
 import React from 'react';
 import { TableBody, TableRow, TableCell, Text } from 'grommet';
 
-const UserTableBody = props => {
-	const columns = [
-		{ label: 'id', weight: 'normal', align: 'start' },
-		{ label: 'doctorLabel', weight: 'normal', align: 'center' },
-		{ label: 'date', weight: 'bold', align: 'end' }
-	];
+const Tablebody = props => {
 	return (
 		<TableBody>
 			{props.data.length
 				? props.data.map(row => (
-						<TableRow key={row.id} data-testid="user-schedule">
-							{columns.map(col => (
+						<TableRow key={row.id} data-testid={'table-body'}>
+							{props.columns.map(col => (
 								<TableCell key={col.label} scope="row" align={col.align}>
 									<Text weight={col.weight}>{row[col.label]}</Text>
 								</TableCell>
@@ -24,4 +19,4 @@ const UserTableBody = props => {
 	);
 };
 
-export default UserTableBody;
+export default Tablebody;

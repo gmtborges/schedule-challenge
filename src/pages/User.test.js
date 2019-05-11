@@ -3,7 +3,7 @@ import { render, cleanup } from 'react-testing-library';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import User from './User';
-import UserTableBody from '../components/User/UserTableBody';
+import TableBody from '../components/TableBody';
 import { Table } from 'grommet';
 
 afterEach(cleanup);
@@ -24,6 +24,12 @@ function renderWithRouter(
 	};
 }
 
+const columns = [
+	{ label: 'id', weight: 'normal', align: 'start' },
+	{ label: 'doctorLabel', weight: 'normal', align: 'center' },
+	{ label: 'date', weight: 'bold', align: 'end' }
+];
+
 test('should render User page', () => {
 	const { asFragment } = renderWithRouter(<User />);
 
@@ -42,33 +48,32 @@ test('should logout on "sair" button clicked', () => {
 test('should render a empty list if has no schedules', () => {
 	const { queryAllByTestId } = render(
 		<Table>
-			<UserTableBody data={[]} />
+			<TableBody data={[]} columns={columns} />
 		</Table>
 	);
-	const rows = queryAllByTestId('user-schedule');
+	const rows = queryAllByTestId('table-body');
 	expect(rows.length).toBe(0);
 });
 
 test('should render a list with 2 schedules', () => {
+	const data = [
+		{
+			id: 1,
+			doctor: 'Mayara Moreira de Deus / Otorrino',
+			time: '10/05/19 - 07:00h'
+		},
+		{
+			id: 2,
+			doctor: 'Mayara Moreira de Deus / Otorrino',
+			time: '15/05/19 - 07:00h'
+		}
+	];
 	const { getAllByTestId } = render(
 		<Table>
-			<UserTableBody
-				data={[
-					{
-						id: 1,
-						doctor: 'Mayara Moreira de Deus / Otorrino',
-						time: '10/05/19 - 07:00h'
-					},
-					{
-						id: 2,
-						doctor: 'Mayara Moreira de Deus / Otorrino',
-						time: '15/05/19 - 07:00h'
-					}
-				]}
-			/>
+			<TableBody data={data} columns={columns} />
 		</Table>
 	);
-	const rows = getAllByTestId('user-schedule');
+	const rows = getAllByTestId('table-body');
 	expect(rows.length).toBe(2);
 });
 

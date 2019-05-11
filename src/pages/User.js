@@ -11,13 +11,18 @@ import {
 	Text
 } from 'grommet';
 import { Link } from 'react-router-dom';
-import UserTableBody from '../components/User/UserTableBody';
+import TableBody from '../components/TableBody';
 
 export default class User extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: [],
+			columns: [
+				{ label: 'id', weight: 'normal', align: 'start' },
+				{ label: 'doctorLabel', weight: 'normal', align: 'center' },
+				{ label: 'date', weight: 'bold', align: 'end' }
+			]
 		};
 	}
 
@@ -28,6 +33,7 @@ export default class User extends Component {
 		this.setState({ data: schedules });
 	}
 	render() {
+		const { data, columns } = this.state;
 		return (
 			<Home history={this.props.history}>
 				<Box width="xlarge" margin={{ vertical: '60px' }}>
@@ -51,7 +57,7 @@ export default class User extends Component {
 								</TableCell>
 							</TableRow>
 						</TableHeader>
-						<UserTableBody data={this.state.data} />
+						<TableBody data={data} columns={columns} />
 					</Table>
 				</Box>
 			</Home>
