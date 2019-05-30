@@ -35,4 +35,3 @@ Agendamento de pacientes e médicos.
 
 - Desenvolver backend
 - Cobrir mais casos de testes
-- Torcer pra passar no processo 😁
